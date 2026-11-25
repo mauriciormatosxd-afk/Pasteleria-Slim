@@ -469,9 +469,6 @@ img {
   color: #ffffff;
   font-size: 20px;
 }
-span.badge {
-  color: #ffffff;
-}
 .badge {
   position: absolute;
   top: 12px;
@@ -539,11 +536,10 @@ span.badge {
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 24px;
-  background-color: #f8f1e5;
 }
 .tab,
 .chip {
-  padding: 0px 18px;
+  padding: 9px 18px;
   border: 1px solid #ede3d0;
   border-radius: 999px;
   background: #ffffff;
@@ -561,7 +557,7 @@ span.badge {
 .select,
 .textarea {
   width: 100%;
-  padding: 0px 15px;
+  padding: 12px 15px;
   border: 1px solid #ede3d0;
   border-radius: 12px;
   background: #ffffff;
@@ -577,7 +573,6 @@ span.badge {
 .toolbar .input {
   max-width: 300px;
   border-radius: 999px;
-  padding: 0px 10px;
 }
 .toolbar .select {
   width: auto;
@@ -938,13 +933,12 @@ span.badge {
 }
 .account-tab {
   flex: none;
-  padding: 19px 21px;
+  padding: 17px 21px;
   border: 0;
   border-bottom: 3px solid transparent;
   background: transparent;
   color: rgba(36, 32, 30, 0.6);
   font-weight: 600;
-  line-height: 100%;
 }
 .account-tab.active {
   border-color: #ef840d;
@@ -1184,9 +1178,6 @@ span.badge {
   padding: 14px;
   border: 2px solid #ede3d0;
   border-radius: 13px;
-}
-.payment-option span {
-  height: fit-content !important;
 }
 .payment-option:has(input:checked) {
   border-color: #ef840d;
@@ -1838,15 +1829,13 @@ textarea.input {
 .legal-note li {
   margin-bottom: 10px;
 }
-fieldset,
-.campo {
+fieldset {
   margin: 0 0 22px;
   padding: 16px;
   border: 1px solid #ede3d0;
   border-radius: 14px;
 }
-fieldset legend,
-.campo legend {
+fieldset legend {
   padding: 0 8px;
   color: #5a320a;
   font-weight: 700;

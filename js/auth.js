@@ -63,10 +63,11 @@ const SlimAuth = (() => {
       const result = await window.SlimDB.signIn(email, password);
       if (result?.error) return { ok: false, error: "Correo o contraseña incorrectos: " + result.error.message };
       const authUser = result?.data?.user;
-      const user = { ...(authUser?.user_metadata || {}), id: authUser?.id, email: authUser?.email || email };
+      const role = (await window.SlimDB.getRole().catch(() => null)) || "customer";
+      const user = { ...(authUser?.user_metadata || {}), id: authUser?.id, email: authUser?.email || email, role };
       setSession(user);
       SlimCart.adoptGuest(email);
-      return { ok: true };
+      return { ok: true, role };
     }
     const user = read(USERS_KEY, []).find((u) => u.email === email);
     if (!user || user.passwordHash !== (await hash(password))) {
@@ -91,10 +92,20 @@ const SlimAuth = (() => {
     return current();
   }
 
-  const logout = () => {
+  const logout = async () => {
     localStorage.removeItem(SESSION_KEY);
-    if (window.SlimDB?.configured) window.SlimDB.signOut().catch(console.error);
+    if (window.SlimDB?.configured) {
+      try { await window.SlimDB.signOut(); } catch (error) { console.error(error); }
+    }
   };
+  // Actualiza el rol guardado en la sesión local (por si cambió en la base de datos).
+  async function syncRole() {
+    const session = current();
+    if (!session || !window.SlimDB?.configured) return session?.role || null;
+    const role = await window.SlimDB.getRole().catch(() => null);
+    if (role && role !== session.role) setSession({ ...session, role });
+    return role;
+  }
 
   // Redirige al login si no hay sesión. `next` es la página a la que volver.
   function require(next) {
@@ -103,7 +114,7 @@ const SlimAuth = (() => {
     return false;
   }
 
-  return { current, register, login, logout, updateProfile, require };
+  return { current, register, login, logout, updateProfile, require, syncRole };
 })();
 
 function escapeHtml(value) {

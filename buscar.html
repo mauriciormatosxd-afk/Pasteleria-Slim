@@ -1,61 +1,68 @@
 <!doctype html>
 <html lang="es">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Busca tu postre favorito por nombre o categoría." />
-  <meta property="og:title" content="Pastelería SLIM" />
-  <meta property="og:description" content="Busca tu postre favorito por nombre o categoría." />
-  <meta property="og:image" content="assets/images/cake-chocolate.webp" />
-  <meta name="theme-color" content="#5A320A" />
-  <link rel="icon" href="assets/images/logo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" />
-  <title>Buscar | Pastelería SLIM</title>
-
-  <!-- Unidad 4: frameworks CSS aplicados al sitio real -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script> tailwind.config = { corePlugins: { preflight: false, } }</script>
-  <script src="js/config.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="js/supabase.js" defer></script>
-  <script src="js/auth.js" defer></script>
-  <script src="js/cart.js" defer></script>
-  <script src="js/main.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
-  <script src="js/integracion-unidades.js" defer></script>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/integracion-unidades.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Busca tu postre favorito por nombre o categoría."
+    />
+    <meta property="og:title" content="Pastelería SLIM" />
+    <meta
+      property="og:description"
+      content="Busca tu postre favorito por nombre o categoría."
+    />
+    <meta property="og:image" content="assets/images/cake-chocolate.webp" />
+    <meta name="theme-color" content="#5A320A" />
+    <link rel="icon" href="assets/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    />
+    <title>Buscar | Pastelería SLIM</title>
+    
+    <!-- Unidad 4: frameworks CSS aplicados al sitio real -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/integracion-unidades.css">
+    <script src="js/config.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="js/supabase.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/main.js" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+    <script src="js/integracion-unidades.js" defer></script>
 </head>
-
-<body data-page="search">
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <div data-site-header></div>
-  <main id="contenido">
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Encuentra tu favorito</p>
-        <h1>Buscar <span>productos</span></h1>
-        <p>Explora nuestro catálogo por nombre o categoría</p>
-      </div>
-    </section>
-    <section class="section">
-      <div class="narrow">
-        <form class="search-box" data-search-form>
-          <input class="input" placeholder="¿Qué estás buscando?" autofocus /><button
-            aria-label="Buscar">Buscar</button>
-        </form>
-      </div>
-      <div class="mt-38 container" data-search-results></div>
-    </section>
-  </main>
-  <div data-site-footer></div>
-</body>
-
+  <body data-page="search">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div data-site-header></div>
+    <main id="contenido">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Encuentra tu favorito</p>
+          <h1>Buscar <span>productos</span></h1>
+          <p>Explora nuestro catálogo por nombre o categoría</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="narrow">
+          <form class="search-box" data-search-form>
+            <input
+              class="input"
+              placeholder="¿Qué estás buscando?"
+              autofocus
+            /><button aria-label="Buscar">Buscar</button>
+          </form>
+        </div>
+        <div class="mt-38 container" data-search-results></div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+  </body>
 </html>

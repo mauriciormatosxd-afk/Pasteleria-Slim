@@ -146,16 +146,17 @@ function icon(name) {
     user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
     search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
     menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+    logout: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/>',
     pin: '<path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2"/>',
   };
   return `<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths[name] || ""}</svg>`;
 }
 function header() {
   const page = document.body.dataset.page;
-  return `<header class="site-header"><div class="container header-row"><a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Logo Pastelería SLIM"><span>Pastelería <em>SLIM</em></span></a><nav class="desktop-nav" aria-label="Navegación principal"><a class="${page === "local" ? "active" : ""}" href="locales.html">Local</a><a class="${page === "products" ? "active" : ""}" href="productos.html">Productos</a><a class="${page === "about" ? "active" : ""}" href="nosotros.html">Nosotros</a><a class="${page === "service" ? "active" : ""}" href="servicio-cliente.html">Ayuda</a></nav><form class="header-search" data-global-search><input aria-label="Buscar" name="q" placeholder="Buscar pasteles, tortas..."><button aria-label="Buscar">${icon("search")}</button></form><div class="header-actions"><a class="icon-link" href="carrito.html" aria-label="Carrito">${icon("cart")}<span class="cart-count">${SlimCart.count()}</span></a><a class="icon-link" href="usuario.html" aria-label="Mi cuenta">${icon("user")}</a><button class="icon-link menu-button" data-menu aria-label="Abrir menú">${icon("menu")}</button></div></div><nav class="mobile-menu" data-mobile-menu><a href="locales.html">Local</a><a href="productos.html">Productos</a><a href="buscar.html">Buscar</a><a href="nosotros.html">Sobre nosotros</a><a href="servicio-cliente.html">Servicio al cliente</a></nav></header>`;
+  return `<header class="site-header"><div class="container header-row"><a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Logo Pastelería SLIM"><span>Pastelería <em>SLIM</em></span></a><nav class="desktop-nav" aria-label="Navegación principal"><a class="${page === "local" ? "active" : ""}" href="locales.html">Local</a><a class="${page === "products" ? "active" : ""}" href="productos.html">Productos</a><a class="${page === "about" ? "active" : ""}" href="nosotros.html">Nosotros</a><a class="${page === "service" ? "active" : ""}" href="servicio-cliente.html">Ayuda</a></nav><form class="header-search" data-global-search><input aria-label="Buscar" name="q" placeholder="Buscar pasteles, tortas..."><button aria-label="Buscar">${icon("search")}</button></form><div class="header-actions"><a class="icon-link" href="carrito.html" aria-label="Carrito">${icon("cart")}<span class="cart-count">${SlimCart.count()}</span></a><a class="icon-link" href="usuario.html" aria-label="Mi cuenta">${icon("user")}</a>${SlimAuth.current() ? `<a class="icon-link" href="admin.html" data-admin-link hidden aria-label="Panel de administración" title="Panel admin" style="font-size:.8rem;font-weight:600;width:auto;padding:0 10px">Admin</a><button class="icon-link" type="button" data-logout aria-label="Cerrar sesión" title="Cerrar sesión">${icon("logout")}</button>` : ""}<button class="icon-link menu-button" data-menu aria-label="Abrir menú">${icon("menu")}</button></div></div><nav class="mobile-menu" data-mobile-menu><a href="locales.html">Local</a><a href="productos.html">Productos</a><a href="buscar.html">Buscar</a><a href="nosotros.html">Sobre nosotros</a><a href="servicio-cliente.html">Servicio al cliente</a></nav></header>`;
 }
 function footer() {
-  return `<footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Logo"><span>Pastelería SLIM</span></a><p>Sabores que endulzan tu vida. Creaciones artesanales con ingredientes seleccionados desde 2008.</p><div class="socials"><a href="#" aria-label="Instagram">In</a><a href="#" aria-label="Facebook">Fb</a><a href="#" aria-label="YouTube">Yt</a></div></div>${footerSection("Contacto", '<ul class="footer-list"><li>+51 964 123 456</li><li><a href="mailto:hola@pasteleria-slim.pe">hola@pasteleria-slim.pe</a></li><li>Jr. Puno 456, Huancayo, Perú</li></ul>')}${footerSection("Sobre nosotros", '<ul class="footer-list"><li><a href="nosotros.html">Nuestra historia</a></li><li><a href="nosotros.html#equipo">Nuestro equipo</a></li><li><a href="nosotros.html#proceso">Proceso artesanal</a></li><li><a href="locales.html">Locales</a></li></ul>')}${footerSection("Servicio al cliente", '<ul class="footer-list"><li><a href="servicio-cliente.html#faq">Preguntas frecuentes</a></li><li><a href="servicio-cliente.html#envios">Política de envíos</a></li><li><a href="servicio-cliente.html#devoluciones">Devoluciones</a></li><li><a href="servicio-cliente.html#personalizados">Pedidos personalizados</a></li></ul>')}</div><div class="footer-bottom">© 2026 Pastelería SLIM. Pagina creada por:<br>- Wilhelm Leone, Ferrer Espinoza<br>- Rosales Matos, Mauricio Benjamin<br>- Rosales Torres, Raul Eduardo</div><div class="container claims-strip"><a class="claims-link" href="reclamaciones.html"><span aria-hidden="true">📖</span> Libro de Reclamaciones</a></div></footer>`;
+  return `<footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Logo"><span>Pastelería SLIM</span></a><p>Sabores que endulzan tu vida. Creaciones artesanales con ingredientes seleccionados desde 2008.</p><div class="socials"><a href="#" aria-label="Instagram">In</a><a href="#" aria-label="Facebook">Fb</a><a href="#" aria-label="YouTube">Yt</a></div></div>${footerSection("Contacto", '<ul class="footer-list"><li>+51 964 123 456</li><li><a href="mailto:hola@pasteleria-slim.pe">hola@pasteleria-slim.pe</a></li><li>Jr. Puno 456, Huancayo, Perú</li></ul>')}${footerSection("Sobre nosotros", '<ul class="footer-list"><li><a href="nosotros.html">Nuestra historia</a></li><li><a href="nosotros.html#equipo">Nuestro equipo</a></li><li><a href="nosotros.html#proceso">Proceso artesanal</a></li><li><a href="locales.html">Locales</a></li></ul>')}${footerSection("Servicio al cliente", '<ul class="footer-list"><li><a href="servicio-cliente.html#faq">Preguntas frecuentes</a></li><li><a href="servicio-cliente.html#envios">Política de envíos</a></li><li><a href="servicio-cliente.html#devoluciones">Devoluciones</a></li><li><a href="servicio-cliente.html#personalizados">Pedidos personalizados</a></li></ul>')}</div><div class="footer-bottom">© 2026 Pastelería SLIM. Todos los derechos reservados.</div><div class="container claims-strip"><a class="claims-link" href="reclamaciones.html"><span aria-hidden="true">📖</span> Libro de Reclamaciones</a></div></footer>`;
 }
 function footerSection(title, content) {
   return `<section class="footer-section"><button class="footer-toggle" type="button">${title}<span>+</span></button><h4>${title}</h4><div class="footer-content">${content}</div></section>`;
@@ -201,6 +202,19 @@ function initShell() {
         b.parentElement.classList.toggle("open"),
       ),
     );
+  document.querySelectorAll("[data-logout]").forEach((button) =>
+    button.addEventListener("click", async () => {
+      await SlimAuth.logout();
+      location.href = "index.html";
+    }),
+  );
+  // Muestra los enlaces de administrador solo si el rol guardado en Supabase es "admin".
+  const toggleAdminLinks = (role) =>
+    document.querySelectorAll("[data-admin-link]").forEach((el) => (el.hidden = role !== "admin"));
+  if (SlimAuth.current()) {
+    toggleAdminLinks(SlimAuth.current().role);
+    SlimAuth.syncRole().then(toggleAdminLinks).catch(() => {});
+  }
   document.querySelectorAll("[data-global-search]").forEach((form) =>
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -494,7 +508,8 @@ function initLogin() {
   const errorBox = document.querySelector("[data-auth-error]");
   const params = new URLSearchParams(location.search);
   const requested = params.get("next") || "";
-  const next = /^[\w-]+\.html$/.test(requested) ? requested : "usuario.html";
+  // Los clientes vuelven a la compra si venían de ahí; si no, van al inicio.
+  const next = ["checkout.html", "carrito.html"].includes(requested) ? requested : "index.html";
   let isRegister = false;
 
   function setMode(mode) {
@@ -520,8 +535,8 @@ function initLogin() {
     logout.type = "button";
     logout.className = "text-link";
     logout.textContent = "Cerrar sesión";
-    logout.addEventListener("click", () => {
-      SlimAuth.logout();
+    logout.addEventListener("click", async () => {
+      await SlimAuth.logout();
       location.reload();
     });
     notice.append("Sesión iniciada como ", strong, ". ", logout);
@@ -581,7 +596,7 @@ function initLogin() {
       setMode("login");
       return;
     }
-    location.href = next;
+    location.href = result.role === "admin" ? "admin.html" : next;
   });
 }
 function initAnimations() {
@@ -756,8 +771,8 @@ async function initCheckout() {
     const local = LOCALES.find(l => l.id === order.localId) || LOCALES[0];
     const payload = {
       code, email: user.email, delivery: order.delivery, localId: order.localId,
-      localName: local.name, payment: order.payment, data: { ...order.data },
-      items: snapshot.items.map(i => ({ ...i })), subtotal: t.subtotal,
+      localName: local.name, payment: order.payment, data: {...order.data},
+      items: snapshot.items.map(i => ({...i})), subtotal: t.subtotal,
       shipping: t.shipping, discount: t.off, total: t.total, createdAt: new Date().toISOString()
     };
     if (window.SlimDB?.saveOrder) {
@@ -835,7 +850,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       const { data, error } = await window.SlimDB.client.from("products").select("*").eq("active", true).order("id");
       if (error) throw error;
-      if (data?.length) PRODUCTS = data.map(p => ({ id: Number(p.id), name: p.name, price: Number(p.price), rating: 4.8, reviews: 0, badge: "", cat: p.category_id || "especiales", img: p.image || "cake-chocolate.webp" }));
+      if (data?.length) PRODUCTS = data.map(p => ({ id:Number(p.id), name:p.name, price:Number(p.price), rating:4.8, reviews:0, badge:"", cat:p.category_id || "especiales", img:p.image || "cake-chocolate.webp" }));
     } catch (error) { console.warn("No se pudo cargar el catálogo remoto; se usa el catálogo local.", error); }
   }
   if (document.body.dataset.page === "user") {

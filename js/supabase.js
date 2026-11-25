@@ -20,6 +20,14 @@
     async signOut() {
       if (client) await client.auth.signOut();
     },
+    // Devuelve "admin" o "customer" según profiles.role; null si no hay sesión de Supabase.
+    async getRole() {
+      if (!client) return null;
+      const { data: { user } } = await client.auth.getUser();
+      if (!user) return null;
+      const { data } = await client.from("profiles").select("role").eq("id", user.id).maybeSingle();
+      return data?.role || "customer";
+    },
     async updateProfile(profile) {
       if (!client) return null;
       return client.auth.updateUser({ data: profile });

@@ -557,10 +557,6 @@ img {
   font-size: 20px;
 }
 
-span.badge {
-  color: @white;
-}
-
 .badge {
   position: absolute;
   top: 12px;
@@ -641,12 +637,11 @@ span.badge {
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 24px;
-  background-color: @cream;
 }
 
 .tab,
 .chip {
-  padding: 0px 18px;
+  padding: 9px 18px;
   border: 1px solid @cream-dark;
   border-radius: 999px;
   background: @white;
@@ -666,7 +661,7 @@ span.badge {
 .select,
 .textarea {
   width: 100%;
-  padding: 0px 15px;
+  padding: 12px 15px;
   border: 1px solid @cream-dark;
   border-radius: 12px;
   background: @white;
@@ -684,7 +679,6 @@ span.badge {
 .toolbar .input {
   max-width: 300px;
   border-radius: 999px;
-  padding: 0px 10px;
 }
 
 .toolbar .select {
@@ -1099,13 +1093,12 @@ span.badge {
 
 .account-tab {
   flex: none;
-  padding: 19px 21px;
+  padding: 17px 21px;
   border: 0;
   border-bottom: 3px solid transparent;
   background: transparent;
   color: fade(@ink, 60%);
   font-weight: 600;
-  line-height: 100%;
 }
 
 .account-tab.active {
@@ -1382,10 +1375,6 @@ span.badge {
   padding: 14px;
   border: 2px solid @cream-dark;
   border-radius: 13px;
-}
-
-.payment-option span {
-  height: fit-content !important;
 }
 
 .payment-option:has(input:checked) {
