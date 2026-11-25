@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Conoce la historia, el proceso artesanal y al equipo de Pastelería SLIM." />
+  <meta property="og:title" content="Pastelería SLIM" />
+  <meta property="og:description" content="Conoce la historia, el proceso artesanal y al equipo de Pastelería SLIM." />
+  <meta property="og:image" content="assets/images/cake-chocolate.webp" />
+  <meta name="theme-color" content="#5A320A" />
+  <link rel="icon" href="assets/images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" />
+  <title>Nosotros | Pastelería SLIM</title>
+
+  <!-- Unidad 4: frameworks CSS aplicados al sitio real -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script> tailwind.config = { corePlugins: { preflight: false, } }</script>
+  <script src="js/config.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="js/supabase.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+  <script src="js/integracion-unidades.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/integracion-unidades.css">
+</head>
+
+<body data-page="about">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div data-site-header></div>
+  <main id="contenido">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Nuestra historia</p>
+        <h1>Sobre <span>Nosotros</span></h1>
+        <p>
+          Somos una pastelería gourmet familiar que desde 2008 endulza
+          momentos especiales con creaciones artesanales llenas de sabor y
+          tradición.
+        </p>
+      </div>
+    </section>
+    <section id="proceso" class="section white">
+      <div class="container story-grid">
+        <div>
+          <p class="eyebrow">Nuestro proceso</p>
+          <h2 class="title">Artesanal desde el primer ingrediente</h2>
+          <p class="muted">
+            Cada mañana seleccionamos chocolate de origen, frutas frescas de
+            temporada, mantequilla de rancho y huevos frescos. No usamos
+            mezclas preelaboradas ni conservadores.
+          </p>
+          <p class="muted">
+            Todo se elabora en el momento, con técnicas aprendidas en escuelas
+            de pastelería del Perú y Europa.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <strong>18+</strong><small>Años de experiencia</small>
+            </div>
+            <div class="stat">
+              <strong>50K+</strong><small>Pasteles entregados</small>
+            </div>
+            <div class="stat">
+              <strong>5★</strong><small>Calificación</small>
+            </div>
+          </div>
+        </div>
+        <div class="story-images">
+          <img loading="lazy" decoding="async" src="assets/images/cupcakes.webp" alt="Cupcakes artesanales" /><img
+            loading="lazy" decoding="async" src="assets/images/cake-chocolate.webp" alt="Torta artesanal" />
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="block center section-heading">
+          <p class="eyebrow">Lo que nos define</p>
+          <h2 class="title">Nuestros valores</h2>
+        </div>
+        <div class="grid grid-4">
+          <article class="value-card">
+            <span class="value-icon">01</span>
+            <h3>Ingredientes naturales</h3>
+            <p>Sin conservadores ni grasas trans. Solo lo mejor para ti.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-icon">02</span>
+            <h3>Hecho con amor</h3>
+            <p>Cada producto se elabora a mano con dedicación.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-icon">03</span>
+            <h3>Calidad gourmet</h3>
+            <p>Chocolates finos, frutas frescas y vainilla peruana.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-icon">04</span>
+            <h3>Familia primero</h3>
+            <p>Una empresa familiar comprometida con su comunidad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section white">
+      <div class="container">
+        <div class="block center section-heading">
+          <p class="eyebrow">Nuestra trayectoria</p>
+          <h2 class="title">18 años de historia</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-year">08</span>
+            <div class="timeline-copy">
+              <strong>2008</strong>
+              <p>Abrimos nuestra primera tienda en el Centro Histórico.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">12</span>
+            <div class="timeline-copy">
+              <strong>2012</strong>
+              <p>Lanzamos el servicio de pedidos personalizados.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">16</span>
+            <div class="timeline-copy">
+              <strong>2016</strong>
+              <p>Recibimos el Premio Nacional de Pastelería Artesanal.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">20</span>
+            <div class="timeline-copy">
+              <strong>2020</strong>
+              <p>Iniciamos envíos a domicilio y pedidos en línea.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">26</span>
+            <div class="timeline-copy">
+              <strong>2026</strong>
+              <p>Inauguramos nuestra academia de pastelería.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="equipo" class="section">
+      <div class="container">
+        <div class="block center section-heading">
+          <p class="eyebrow">Las personas detrás del sabor</p>
+          <h2 class="title">Nuestro equipo</h2>
+        </div>
+        <div class="grid grid-3">
+          <article class="team-card">
+            <img loading="lazy" decoding="async" src="assets/images/chef-maria.webp" alt="Chef María González" />
+            <div>
+              <h3>Chef María González</h3>
+              <strong>Pastelera principal</strong>
+              <p class="muted">
+                15 años de experiencia en pastelería fina, formada en París.
+              </p>
+            </div>
+          </article>
+          <article class="team-card">
+            <img loading="lazy" decoding="async" src="assets/images/chef-roberto.webp" alt="Chef Roberto Silva" />
+            <div>
+              <h3>Chef Roberto Silva</h3>
+              <strong>Especialista en chocolates</strong>
+              <p class="muted">
+                Maestro chocolatero con formación internacional.
+              </p>
+            </div>
+          </article>
+          <article class="team-card">
+            <img loading="lazy" decoding="async" src="assets/images/chef-ana.webp" alt="Chef Ana Castillo" />
+            <div>
+              <h3>Chef Ana Castillo</h3>
+              <strong>Decoradora artística</strong>
+              <p class="muted">Especialista en pasteles de autor y bodas.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+
+</html>
