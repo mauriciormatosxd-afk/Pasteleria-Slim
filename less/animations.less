@@ -1,0 +1,224 @@
+// Animaciones progresivas: solo se activan con JavaScript y respetan accesibilidad.
+@import url("variables.less");
+
+.site-header {
+  animation: header-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.65s ease var(--reveal-delay, 0ms),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-hero .hero-content {
+  animation: hero-enter 0.8s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.category-card img,
+.product-card img,
+.team-card img,
+.location-card>img {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.category-card:hover img,
+.product-card:hover img,
+.team-card:hover img,
+.location-card:hover>img {
+  transform: scale(1.045);
+}
+
+.add-button,
+.icon-link,
+.quick-link,
+.socials a {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.add-button:hover,
+.icon-link:hover,
+.socials a:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.add-button:active,
+.btn:active {
+  transform: scale(0.97);
+}
+
+.quick-link:hover {
+  transform: translateY(-3px);
+  color: @orange;
+  box-shadow: 0 8px 20px fade(@chocolate, 9%);
+}
+
+.faq-question span {
+  transition: transform 0.25s ease;
+}
+
+.faq-item.open .faq-question span {
+  transform: rotate(45deg);
+}
+
+@keyframes header-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// ---- Animaciones nuevas
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.7);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.4) rotate(-12deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.hero-chip {
+  display: inline-block;
+  animation: float 3.2s ease-in-out infinite;
+}
+
+.cart-count.bump {
+  animation: bump 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.product-card {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px) rotate(-0.6deg);
+  box-shadow: 0 14px 30px fade(@chocolate, 16%);
+}
+
+.step-number {
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.step.active .step-number {
+  transform: scale(1.15);
+}
+
+.confirmation-mark {
+  animation: pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.skeleton {
+  background: linear-gradient(90deg,
+      @cream-dark 25%,
+      @cream 50%,
+      @cream-dark 75%) 0 0 / 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+// Entrada escalonada con un bucle LESS
+.stagger(@i: 1) when (@i <=8) {
+  @delay: (@i * 80);
+
+  .product-grid> :nth-child(@{i}),
+  .category-grid> :nth-child(@{i}) {
+    --reveal-delay:~"@{delay}ms";
+  }
+
+  .stagger(@i + 1);
+}
+
+.stagger();
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-chip,
+  .skeleton,
+  .confirmation-mark {
+    animation: none;
+  }
+}

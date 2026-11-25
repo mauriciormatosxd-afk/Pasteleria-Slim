@@ -1,0 +1,23 @@
+// Mixins reutilizables
+.center-grid() {
+  display: grid;
+  place-items: center;
+}
+
+.circle(@size) {
+  width: @size;
+  height: @size;
+  border-radius: 50%;
+  .center-grid();
+}
+
+.ease(@props: all; @time: 0.2s) {
+  transition: @props @time ease;
+}
+
+// Breakpoints mobile-first: .respond(@bp-md; { ... });
+.respond(@width; @rules) {
+  @media (min-width: @width) {
+    @rules();
+  }
+}
